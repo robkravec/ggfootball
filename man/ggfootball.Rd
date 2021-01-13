@@ -14,7 +14,8 @@ ggfootball(
   left_buffer = 1,
   right_buffer = 1,
   five_yd_lines = TRUE,
-  yardline_labels = TRUE,
+  ydline_labels = TRUE,
+  ydline_label_size = 4,
   outer_hash = TRUE,
   inner_hash = FALSE
 )
@@ -43,8 +44,11 @@ numeric}
 \item{five_yd_lines}{Boolean value indicating whether to include white
 vertical lines at each five yard increment}
 
-\item{yardline_labels}{Boolean value indicating whether to include yard line
+\item{ydline_labels}{Boolean value indicating whether to include yard line
 labels every ten yards}
+
+\item{ydline_label_size}{Size of text used for yard line labels, specified
+as numeric}
 
 \item{outer_hash}{Boolean value indicating whether to include hash marks
 outside of yard line labels (near sidelines)}
@@ -68,7 +72,7 @@ text annotations) to produce complete visualizations.
 ggfootball()
 ggfootball(left_endzone = "red", right_endzone = "blue",
     field_alpha = 0.7)
-ggfootball() + ggplot2::geom_point(data =
+ggfootball() + geom_point(data =
     data.frame(x = c(10, 20), y = c(20, 30)),
     aes(x = x, y = y))
 

@@ -22,8 +22,10 @@
 #'     numeric
 #' @param five_yd_lines Boolean value indicating whether to include white
 #'     vertical lines at each five yard increment
-#' @param yardline_labels Boolean value indicating whether to include yard line
+#' @param ydline_labels Boolean value indicating whether to include yard line
 #'     labels every ten yards
+#' @param ydline_label_size Size of text used for yard line labels, specified
+#'     as numeric
 #' @param outer_hash Boolean value indicating whether to include hash marks
 #'     outside of yard line labels (near sidelines)
 #' @param inner_hash Boolean value indicating whether to include hash marks
@@ -35,7 +37,7 @@
 #' ggfootball()
 #' ggfootball(left_endzone = "red", right_endzone = "blue",
 #'     field_alpha = 0.7)
-#' ggfootball() + ggplot2::geom_point(data =
+#' ggfootball() + geom_point(data =
 #'     data.frame(x = c(10, 20), y = c(20, 30)),
 #'     aes(x = x, y = y))
 #'
@@ -50,13 +52,10 @@ ggfootball <- function(left_endzone_color = "gray90",
                        left_buffer = 1,
                        right_buffer = 1,
                        five_yd_lines = TRUE,
-                       yardline_labels = TRUE,
+                       ydline_labels = TRUE,
+                       ydline_label_size = 4,
                        outer_hash = TRUE,
                        inner_hash = FALSE) {
-
-  # Create data frames to add lines to field, hash marks, and 10-yard labels
-  hash_df <- data.frame(x = 11:109)
-
 
   # Make middle of field green
   gplot <- ggplot2::ggplot() + ggplot2::geom_rect(data = NULL,
@@ -100,7 +99,7 @@ ggfootball <- function(left_endzone_color = "gray90",
   }
 
   # Add yardline labels
-  if(yardline_labels) {
+  if(ydline_labels) {
     # Create data frame with labels and coordinates
     yard_labels_df <- data.frame(x = seq(from = 20, to = 100, by = 10),
                                  y = rep(x = 4, n = 9),
@@ -110,12 +109,12 @@ ggfootball <- function(left_endzone_color = "gray90",
     gplot <- gplot +
       ggplot2::geom_text(data = yard_labels_df,
                          mapping = ggplot2::aes(x = x, y = y, label = digits),
-                         color = "white", size = 5)
+                         color = "white", size = ydline_label_size)
     gplot <- gplot +
       ggplot2::geom_text(data = yard_labels_df,
                          mapping = ggplot2::aes(x = x, y = 53.3 - y,
                                                 label = digits),
-                         color = "white", angle = 180, size = 5)
+                         color = "white", angle = 180, size = ydline_label_size)
   }
 
   # Add outer hash marks to field
