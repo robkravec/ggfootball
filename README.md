@@ -13,3 +13,8 @@ It is expected that users will add other ggplot2 objects (e.g., points represent
 ## Improvement opportunities
 
 As coded, the `ggfootball` function does not have robust protections against invalid user inputs. I may revisit this issue in the future, especially if others encounter problems when using the function
+
+## References
+
+- Hadley Wickham's [book](https://r-pkgs.org/index.html) on building R packages 
+- A short online [tutorial](https://tinyheero.github.io/jekyll/update/2015/07/26/making-your-first-R-package.html) based on Hadley Wickham's book
