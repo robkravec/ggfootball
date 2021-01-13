@@ -2,8 +2,8 @@
 #'
 #' This function produces a plot of an American football field using ggplot2
 #' objects. Originally, this function was created for the NFL Big Data Bowl 2021
-#' on Kaggle \url{https://www.kaggle.com/c/nfl-big-data-bowl-2021}. To keep with
-#' the conventions of the datasets provided, the plotted field spans from
+#' on Kaggle (\url{https://www.kaggle.com/c/nfl-big-data-bowl-2021}). To keep
+#' with the conventions of the datasets provided, the plotted field spans from
 #' 0 - 120 in the x direction and 0 - 53.3 in the y-direction. It is expected
 #' that users will add other ggplot2 objects (e.g., points representing players,
 #' text annotations) to produce complete visualizations.
@@ -33,9 +33,11 @@
 #'
 #' @examples
 #' ggfootball()
-#' ggfootball(left_endzone = "red", right_endzone = "blue", field_alpha = 0.7)
-#' ggfootball + ggplot2::geom_point(data = data.frame(x = c(10, 20),
-#'     y = (20, 30)), aes(x = x, y = y))
+#' ggfootball(left_endzone = "red", right_endzone = "blue",
+#'     field_alpha = 0.7)
+#' ggfootball() + ggplot2::geom_point(data =
+#'     data.frame(x = c(10, 20), y = c(20, 30)),
+#'     aes(x = x, y = y))
 #'
 #' @export
 
