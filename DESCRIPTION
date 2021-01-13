@@ -2,13 +2,13 @@ Package: ggfootball
 Type: Package
 Title: Plot American Football Field
 Version: 0.1.0
-Author: Rob Kravec
-Maintainer: Rob Kravec <rkravec17@gmail.com>
+Authors@R: person("Robert", "Kravec", email = "rkravec17@gmail.com",
+    role = c("aut", "cre"))
 Description: This package contains a single function (also called ggfootball)
     that produces a plot of an American football field using ggplot2 objects.
     It is expected that users will add other ggplot2 objects (e.g., points
     representing players, text annotations) to produce a complete visualization.
-License: What license is it under?
+License: MIT + file LICENSE
 Encoding: UTF-8
 LazyData: true
 URL: https://github.com/robkravec/ggfootball
